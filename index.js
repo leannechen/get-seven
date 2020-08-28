@@ -26,9 +26,9 @@ function g(N) {
   function getCountBelow100(num) {
 
     // 1. Count how many numbers are with 7 in unit digits. Ex. 17, 27, 37...
-    // Get tens digit, e.g. 9 for 97.
+    // Get tens digit, e.g. 9 for 90.
     var tensDigit = Math.floor(num / 10);
-    // Get ones digit, e.g. 7 for 97.
+    // Get ones digit, e.g. 0 for 90.
     var onesDigit = num % 10;
     // Know whether ones contains a 7, and count with it
     var sevenCountInUnit = (onesDigit >= 7)? 1: 0;
