@@ -7,6 +7,9 @@ function g(N) {
   if(N % 1 !== 0) {
     N = Math.trunc(N);
   }
+  if(N < 0) {
+    N = Math.abs(N);
+  }
     // Transform N to number array, 46290 -> [4,6,2,9,0]
   var numberArrayFromN =  Array.from(String(N), Number);
 
@@ -34,19 +37,20 @@ function g(N) {
 
   function getCountAbove100 (num) {
     var result = 0;
+    var numberArray = Array.from(String(num), Number);
     // 3位數以上
     // [4,6,2]
     // 1, 2,
-    for(var i = 0; i < (numberArrayFromN.length - 2); i++) {
+    for(var i = 0; i < (numberArray.length - 2); i++) {
       // count g(10000)*4
       // i=0, 10^4; i=1, 10^3, i=2,10^2
       // ex. 10000 (10^4)
-      var tenthsOfTheDigit = Math.pow(10, numberArrayFromN.length - 1 - i);
+      var tenthsOfTheDigit = Math.pow(10, numberArray.length - 1 - i);
       // 計算 10000 中，有7的數字有幾個 =  (all - numbers without 7)
       // 10000 - 9^4 = 10^4 - 9^4
-      var countOfTheTenths = tenthsOfTheDigit - Math.pow(9, numberArrayFromN.length - 1 - i);
+      var countOfTheTenths = tenthsOfTheDigit - Math.pow(9, numberArray.length - 1 - i);
       // ex. "4"
-      var valueOfTheDigit = numberArrayFromN[i];
+      var valueOfTheDigit = numberArray[i];
 
       result = result + countOfTheTenths * valueOfTheDigit;
     }

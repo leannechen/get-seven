@@ -65,3 +65,7 @@ test('Inputting 6297 get 1683', () => {
 test('Inputting 46290 get ', () => {
   expect(g(46290)).toBe(15438);
 })
+
+test('Inputting -100 get 19', () => {
+  expect(g(-100)).toBe(19);
+})
