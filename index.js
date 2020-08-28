@@ -62,9 +62,6 @@ function g(N) {
 
 }
 
-console.log(g(46290));
+// console.log(g(46290));
 
-function sum(a, b) {
-  return a + b;
-}
-module.exports = sum;
+module.exports = g;
