@@ -2,12 +2,9 @@
  * Get the count of numbers that contain at least a 7 (e.g. 17, 275, 77)
  * when you write out all the numbers from 1 to N
  * @param N
- * @returns {number} count of numbers that contain a 7
+ * @returns {number} Count of numbers that contain a 7
  */
 function g(N) {
-  // N = 46290
-  // Find the number's digits
-  // ex. 5位數
 
   // Transform N to integer if it's float number
   if(N % 1 !== 0) {
@@ -63,25 +60,26 @@ function g(N) {
     var numberArray = Array.from(String(num), Number);
     // Iterating through [4,6,2] if N is 46297
     for(var i = 0; i < (numberArray.length - 2); i++) {
-      // count g(10000)*4
-      // i=0, 10^4; i=1, 10^3, i=2,10^2
-      // ex. 10000 (10^4)
-      var tensOfTheDigit = Math.pow(10, numberArray.length - 1 - i);
-      // 計算 10000 中，有7的數字有幾個 =  (all - numbers without 7)
-      // 10000 - 9^4 = 10^4 - 9^4
-      var countOfTheTens = tensOfTheDigit - Math.pow(9, numberArray.length - 1 - i);
+      // If 6000, since 6000 = 6 * 1000^3, m = 3
+      // (i=0, 10^4; i=1, 10^3, i=2,10^2...)
+      var m = numberArray.length - 1 - i;
+      // count g(1000)*6
+      // ex. 1000 (10^3)
+      var powerOf10TotheMth = Math.pow(10, m);
+      // Count how many count are there in 1000: all - numbers without 7
+      // e.g. g(1000) = 1000 - 9^3 = 10^3 - 9^3
+      var countOf10ToPower = powerOf10TotheMth - Math.pow(9, m);
       // ex. "4"
       var valueOfTheDigit = numberArray[i];
 
-      result = result + countOfTheTens * valueOfTheDigit;
+      result = result + countOf10ToPower * valueOfTheDigit;
     }
 
     return result;
   }
 
-  // count g(100) 以下的數 ex. g(97)
+  // Count number below 100, e.g. g(90) for 46290
   if(numberArrayFromN.length <= 2) {
-    // count g(N) and return
     return getCountBelow100(N);
   }
 
@@ -91,7 +89,5 @@ function g(N) {
   return countAbove100 + countBelow100;
 
 }
-
-// console.log(g(46290));
 
 module.exports = g;
