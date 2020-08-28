@@ -2,7 +2,12 @@ function g(N) {
   // N = 46290
   // Find the number's digits
   // ex. 5位數
-  // Transform N to number array, 46290 -> [4,6,2,9,0]
+
+  // Transform N to integer if it's float number
+  if(N % 1 !== 0) {
+    N = Math.trunc(N);
+  }
+    // Transform N to number array, 46290 -> [4,6,2,9,0]
   var numberArrayFromN =  Array.from(String(N), Number);
 
   function getCountBelow100(num) {
