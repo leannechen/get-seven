@@ -37,6 +37,13 @@ test('Inputting 70.5 get 8', () => {
   expect(g(70.5)).toBe(8);
 })
 
+test('Inputting 100 get 19', () => {
+  expect(g(100)).toBe(19);
+})
+
+test('Inputting 1000 get 271', () => {
+  expect(g(1000)).toBe(271);
+})
 
 test('Numbers above 100 could be composited, example: 6200', () => {
   const g100 = g(100);
