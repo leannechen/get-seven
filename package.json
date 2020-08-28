@@ -5,7 +5,8 @@
   "author": "Leanne Chen <lianchennnn@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "devDependencies": {
     "jest": "^26.4.2"
